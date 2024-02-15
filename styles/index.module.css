@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+
+.header {
+    width: 100%;
+    height: 20vh;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hlogo {
+    height: 70%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  
+}
+
+.hlogo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hmiddle{
+    font-size: var( --h5-font-size);
+    color: var(--b1-color);
+    font-family: 'Sixtyfour', sans-serif;
+}
+
+.hright {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.huser {
+    margin-right: 10px;
+    font-size: var( --h5-font-size);
+}
+
+.huserphoto {
+    height: 70%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.huserphoto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.mains{
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    border-radius: 20px;
+    border: 5px solid var(--b2-color);
+
+    padding: 10px;
+}
+
+/* 筐內top */
+.top{
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+
+.topC {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  
+}
+
+.topC img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 登入範圍 */
+
+.Middle{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content:space-around;
+
+}
+.mleft{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mright{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* left */
+.bigphoto {
+    width: 70%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.bigphoto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* right */
+.fields{
+    width: 100%;
+}
+.form{
+    margin-left: 20%;
+    margin-right: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.input{
+    width: 100%;
+    min-width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    border:var(--b2-color) solid 2px;
+    padding-left: 10px;
+}
+.bottom{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.submit{
+    width: 30%;
+    height: 30px;
+    border: 20px;
+}
