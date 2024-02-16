@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+
+.main {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    width: 35%;
+    min-width: 150px;
+    height: 80%;
+    background-color: rgb(243, 182, 143);
+    margin-right: 20px;
+    ;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right {
+    width: 60%;
+    min-width: 300px;
+    height: 80%;
+
+    
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* 左半邊 */
+.person {
+    width: 80%;
+    height: 80px;
+    border-bottom: 1px gray solid;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+
+}
+
+
+.puserphoto {
+    width: 80px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.puserphoto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 右半邊 */
+.chatcontent{
+width: 100%;
+
+height: 70%;
+margin-bottom: 5%;
+padding: 20px;
+background-color: white;
+
+
+border-radius: 20px;
+border: 3px solid var(--b1-color);
+
+
+}
+.textinput{
+    width: 100%;
+    height: 25%;
+    
+    padding: 20px;
+    /* border-radius: 20px;
+    border: 3px solid var(--b1-color); */
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.input{
+    width: 80%;
+    padding: 20px;
+    border-radius: 20px;
+    border: 3px solid var(--b1-color);
+
+}
+.submit{
+    width: 100px;
+    margin-left: 29px;
+
+    border-radius: 20px;
+ 
+    border: 3px solid var(--b1-color);
+}
