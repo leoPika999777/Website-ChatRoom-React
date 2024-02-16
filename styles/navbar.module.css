@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+
+.header {
+    width: 100%;
+    height: 20vh;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hlogo {
+    width: 10%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  
+}
+
+.hlogo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hmiddle{
+    font-size: var( --h5-font-size);
+    color: var(--b1-color);
+    font-family: 'Sixtyfour', sans-serif;
+}
+
+.hright {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.huser {
+    margin-right: 10px;
+    font-size: var( --h5-font-size);
+}
+
+.huserphoto {
+    height: 70%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.huserphoto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

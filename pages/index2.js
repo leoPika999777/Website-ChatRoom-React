@@ -1,42 +1,17 @@
 import { useState, useContext } from "react";
 import styles from "@/styles/index.module.css";
+import Navbar from "@/components/navbar";
+import IndexRoomIcon from "@/components/index-roomicon";
 
 export default function Index() {
   return (
     <>
       <div className="container">
-        <div className={styles.header}>
-          <div className={styles.hlogo}>
-            <img
-              src="/img/logo.png"
-              // alt="{v.name} "
-            />
-          </div>
-          <div className={styles.hmiddle}>ChatRoom</div>
-          <div className={styles.hright}>
-            <div className={styles.huser}>user</div>
-            <div className={styles.huserphoto}>
-              <img
-                src="/img/user-01.png"
-                // alt="{v.name} "
-              />
-            </div>
-          </div>
-        </div>
+      <Navbar/>
+        
         <div className={styles.main}>
           <div className={styles.mains}>
-            <div className={styles.top}>
-              <div className={styles.topA}>A</div>
-              <div className={styles.topB}>B</div>
-              <div className={styles.topC}>
-                <img
-                  src="/img/chat1.png"
-                  // alt="{v.name} "
-                />
-              </div>
-              <div className={styles.topD}>D</div>
-              <div className={styles.topE}>E</div>
-            </div>
+            <IndexRoomIcon />
             <div className={styles.Middle}>
               <div className={styles.mleft}>
                 <div className={styles.bigphoto}>
