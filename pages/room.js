@@ -7,7 +7,6 @@ import { IoAccessibilitySharp } from "react-icons/io5";
 import { FaKey } from "react-icons/fa";
 import { PiFinnTheHumanFill } from "react-icons/pi";
 
-
 export default function Room() {
   return (
     <>
@@ -18,36 +17,34 @@ export default function Room() {
           <div className={styles.mains}>
             <RoomIcon />
             <div className={styles.Middle}>
-            <div className={styles.MmarginAuto}>
-            <div className={styles.chatbox}>
-                <div className={styles.roomname}>
-                  <p>一首歌的故事</p>
+              <div className={styles.MmarginAuto}>
+                <div className={styles.chatbox}>
+                  <div className={styles.roomname}>
+                    <p>一首歌的故事</p>
+                  </div>
+                  <div className={styles.details}>
+                    <div className={styles.people}>
+                      <IoAccessibilitySharp className={styles.icons} size={"30px"} color="blue" />
+                      <p>15</p>
+                    </div>
+                    <div className={styles.lock}>
+                      <FaKey className={styles.icons} size={"30px"} color="blue" />
+                      <p>Y</p>
+                    </div>
+                    <div className={styles.author}>
+                      <PiFinnTheHumanFill  className={styles.icons} size={"30px"} color="blue" />
+                      <p>BEE</p>
+                    </div>
+                  </div>
+                  
+                  {/* 房間人數 房間加密 創辦作者 */}
                 </div>
-                <div className={styles.icons}>
-                <IoAccessibilitySharp size={"30px"}/>
-                <FaKey size={"30px"}/>
-                <PiFinnTheHumanFill size={"30px"}/>
 
-                </div>
-                <div className={styles.details}>
-                <p>15</p>
-                <p>Y</p>
-                <p>BEE</p>
-
-                </div>
-              {/* 房間人數 房間加密 創辦作者 */}
+                {/* <div className={styles.chatbox}></div>
+                <div className={styles.chatbox}></div>
+                <div className={styles.chatbox}></div>
+                <div className={styles.chatbox}></div> */}
               </div>
-             
-              <div className={styles.chatbox}></div>
-              <div className={styles.chatbox}></div>
-              <div className={styles.chatbox}></div>
-              <div className={styles.chatbox}></div>
-
-            </div>
-              
-           
-
-
             </div>
           </div>
         </div>

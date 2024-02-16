@@ -48,14 +48,15 @@
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    border: 3px transparent solid;
+    border: 10px transparent solid;
     align-items: center;
     justify-content: center;
+    cursor:pointer
     
 }
 
 .chatbox:hover{
-    border: 3px var(--g2-color) solid;
+    border: 10px var(--g2-color) solid;
     
 }
 
@@ -65,17 +66,22 @@
     color: var(--g1-color);
     
 }
-.icons{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 15px;
-
-}
 .details{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin: 15px;
+    margin: 25px;
 
+}
+
+
+.people, .lock, .author{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.people p, .lock p, .author p{
+    margin-top: 15px;
+    color: var(--b2-color);
 }
