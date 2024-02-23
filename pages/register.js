@@ -3,7 +3,67 @@ import styles from "@/styles/register.module.css";
 import Navbar from "@/components/navbar";
 import RegisterRoomIcon from "@/components/register-roomicon";
 
-export default function Index() {
+import { USER_ADD } from "@/configs";
+
+export default function Reg() {
+  const [myForm, setMyForm] = useState({
+    user_name: "",
+    account: "",
+    password: "",
+    confirm: "",
+    photo: 1,
+  });
+
+  // 表單送出通知
+  const [displayInfo, setDisplayInfo] = useState(""); 
+  // "", "succ", "fail"
+
+  const changeHandler = (e) => {
+    const { name, id, value } = e.target;
+    console.log({ name, id, value });
+
+    setDisplayInfo("");
+
+    setMyForm({ ...myForm, [id]: value });
+  };
+
+  const onSubmit = async (e) => {
+
+    if( !myForm.user_name || !myForm.account || !myForm.password || !myForm.confirm){
+      return;
+    }
+    //沒有讓表單送出
+    e.preventDefault();
+
+    
+    //TODO: 檢查各欄位的資料
+
+    // 嚴謹的檢查方式
+    //const emailSchema = z.string().email({ message: "錯誤的 email 格式" });
+    // coerce 寬鬆的檢查方式
+    // const emailSchema = z.coerce
+    //   .string()
+    //   .email({ message: "錯誤的 email 格式" });
+    // console.log("emailSchema:", emailSchema.safeParse(myForm.email));
+
+    //送出資料
+    const r = await fetch(USER_ADD, {
+      method: "POST",
+      body: JSON.stringify(myForm),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const responseData = await r.json();
+    if (responseData.success) {
+      setDisplayInfo("succ");
+      // alert("新增成功");
+    } else {
+      setDisplayInfo("fail");
+      // alert("新增發生錯誤!!!");
+    }
+  };
   return (
     <>
       <div className="container">
@@ -20,33 +80,78 @@ export default function Index() {
               </div>
               <div className={styles.mright}>
                 <div className={styles.fields}>
-                  <form className={styles.form}>
-                    <label className={styles.lable}>
+                  <form className={styles.form} onSubmit={onSubmit}>
+                    <label className={styles.lable} htmlFor="user_name">
                       暱稱：
-                      <input className={styles.input} type="text" name="name" />
+                      <input
+                        className={styles.input}
+                        type="text"
+                        id="user_name"
+                        name="user_name"
+                        value={myForm.user_name}
+                        onChange={changeHandler}
+                      />
+                      <div className="form-text"></div>
                     </label>
 
-                    <label className={styles.lable}>
+                    <label className={styles.lable} htmlFor="account">
                       帳號：
-                      <input className={styles.input} type="text" name="name" />
+                      <input
+                        className={styles.input}
+                        type="text"
+                        id="account"
+                        name="account"
+                        value={myForm.account}
+                        onChange={changeHandler}
+                      />
+                      <div className="form-text"></div>
                     </label>
 
-                    <label className={styles.lable}>
+                    <label className={styles.lable} htmlFor="password">
                       密碼：
-                      <input className={styles.input} type="text" name="name" />
+                      <input
+                        className={styles.input}
+                        type="text"
+                        id="password"
+                        name="password"
+                        value={myForm.password}
+                        onChange={changeHandler}
+                      />
+                      <div className="form-text"></div>
                     </label>
 
                     <label className={styles.lable}>
                       確認密碼：
-                      <input className={styles.input} type="text" name="name" />
+                      <input
+                        className={styles.input}
+                        type="text"
+                        id="confirm"
+                        name="confirm"
+                        value={myForm.confirm}
+                        onChange={changeHandler}
+                      />
+                      <div className="form-text"></div>
                     </label>
+                    {/* 如果有值 displayInfo ?  ( 如果displayIndo成功 ? 資料新增成功 ： 新增失敗） ：null */}
+                  {displayInfo ? (
+                    displayInfo === "succ" ? (
+                      <div class="alert alert-success" role="alert">
+                        資料新增成功
+                      </div>
+                    ) : (
+                      <div class="alert alert-danger" role="alert">
+                        新增發生錯誤!!!
+                      </div>
+                    )
+                  ) : null}
 
                     <div className={styles.bottom}>
-                      <input
+                      <button
                         className={styles.submit}
-                        type="submit"
-                        value="註冊"
-                      />
+                        type="button"
+                        onClick={onSubmit} 
+                        value=""
+                      >註冊</button>
                     </div>
                   </form>
                 </div>

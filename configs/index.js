@@ -87,3 +87,6 @@ export const BLOG_FANSLIST = API_SERVER + '/blog-list/fanslist' // get
 
 // ROOMS-總表
 export const ROOMS_LIST = API_SERVER + '/chat/rooms' // get
+
+//會員註冊
+export const USER_ADD = API_SERVER + '/reg/add'
