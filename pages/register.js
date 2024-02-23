@@ -15,8 +15,11 @@ export default function Reg() {
   });
 
   // 表單送出通知
-  const [displayInfo, setDisplayInfo] = useState(""); 
+  const [displayInfo, setDisplayInfo] = useState("");
   // "", "succ", "fail"
+
+  //資料未填寫
+  const [notext, setNotext] = useState("");
 
   const changeHandler = (e) => {
     const { name, id, value } = e.target;
@@ -28,14 +31,18 @@ export default function Reg() {
   };
 
   const onSubmit = async (e) => {
-
-    if( !myForm.user_name || !myForm.account || !myForm.password || !myForm.confirm){
+    if (
+      !myForm.user_name ||
+      !myForm.account ||
+      !myForm.password ||
+      !myForm.confirm
+    ) {
+      setNotext("fail");
       return;
     }
     //沒有讓表單送出
     e.preventDefault();
 
-    
     //TODO: 檢查各欄位的資料
 
     // 嚴謹的檢查方式
@@ -64,6 +71,39 @@ export default function Reg() {
       // alert("新增發生錯誤!!!");
     }
   };
+
+  //判斷密碼是否一致
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handlePasswordChange = (e) => {
+    const { name, id, value } = e.target;
+    console.log({ name, id, value });
+
+    setDisplayInfo("");
+
+    setMyForm({ ...myForm, [id]: value });
+    setPassword(e.target.value);
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    const { name, id, value } = e.target;
+    console.log({ name, id, value });
+
+    setDisplayInfo("");
+
+    setMyForm({ ...myForm, [id]: value });
+    setConfirmPassword(e.target.value);
+
+    // 判断两个密码是否一致
+    if (password === e.target.value) {
+      setMessage('true');
+    } else {
+      setMessage('false');
+    }
+  };
+
   return (
     <>
       <div className="container">
@@ -93,7 +133,29 @@ export default function Reg() {
                       />
                       <div className="form-text"></div>
                     </label>
-
+                    {/* {notext === "fail" ? (
+                      !myForm.user_name ? (
+                        <div className={styles.notext} role="alert">
+                          <p>欄位未填寫</p>
+                        </div>
+                      ) : null
+                      
+                    ) : null} */}
+                    {notext === "fail" ? (
+                      !myForm.user_name ? (
+                        <div className={styles.notext} role="alert">
+                          <p>名稱未填寫</p>
+                        </div>
+                      ) : (
+                        <div className={styles.yestext} role="alert">
+                          <p>&ensp;</p>
+                        </div>
+                      )
+                    ) : (
+                      <div className={styles.yestext} role="alert">
+                        <p>&ensp;</p>
+                      </div>
+                    )}
                     <label className={styles.lable} htmlFor="account">
                       帳號：
                       <input
@@ -106,52 +168,116 @@ export default function Reg() {
                       />
                       <div className="form-text"></div>
                     </label>
+                    {notext === "fail" ? (
+                      !myForm.account ? (
+                        <div className={styles.notext} role="alert">
+                          <p>帳號未填寫</p>
+                        </div>
+                      ) : (
+                        <div className={styles.yestext} role="alert">
+                          <p>&ensp;</p>
+                        </div>
+                      )
+                    ) : (
+                      <div className={styles.yestext} role="alert">
+                        <p>&ensp;</p>
+                      </div>
+                    )}
 
                     <label className={styles.lable} htmlFor="password">
                       密碼：
                       <input
                         className={styles.input}
-                        type="text"
+                        type="password"
                         id="password"
                         name="password"
                         value={myForm.password}
-                        onChange={changeHandler}
+                        onChange={handlePasswordChange}
                       />
                       <div className="form-text"></div>
                     </label>
+
+                    {notext === "fail" ? (
+                      !myForm.password ? (
+                        <div className={styles.notext} role="alert">
+                          <p>密碼未填寫</p>
+                        </div>
+                      ) : (
+                        <div className={styles.yestext} role="alert">
+                          <p>&ensp;</p>
+                        </div>
+                      )
+                    ) : (
+                      <div className={styles.yestext} role="alert">
+                        <p>&ensp;</p>
+                      </div>
+                    )}
 
                     <label className={styles.lable}>
                       確認密碼：
                       <input
                         className={styles.input}
-                        type="text"
+                        type="password"
                         id="confirm"
                         name="confirm"
                         value={myForm.confirm}
-                        onChange={changeHandler}
+                        onChange={handleConfirmPasswordChange}
                       />
                       <div className="form-text"></div>
                     </label>
-                    {/* 如果有值 displayInfo ?  ( 如果displayIndo成功 ? 資料新增成功 ： 新增失敗） ：null */}
-                  {displayInfo ? (
-                    displayInfo === "succ" ? (
-                      <div class="alert alert-success" role="alert">
-                        資料新增成功
-                      </div>
+                    {notext === "fail" ? (
+                      !myForm.confirm ? (
+                        <div className={styles.notext} role="alert">
+                          <p>欄位未填寫</p>
+                        </div>
+                      ) : (
+                        <div className={styles.yestext} role="alert">
+                          <p>&ensp;</p>
+                        </div>
+                      )
                     ) : (
-                      <div class="alert alert-danger" role="alert">
-                        新增發生錯誤!!!
+                      <div className={styles.yestext} role="alert">
+                        <p>  &ensp;	</p>
                       </div>
-                    )
-                  ) : null}
+                    )}
+                    
+
+                    {!myForm.confirm ? <div className={styles.yestext} role="alert">
+                        <p>  &ensp;	</p>
+                      </div> :(message ? (
+                      message === "true" ? (
+                        <div className={styles.yestext} role="alert">
+                        <p>  &ensp;	</p>
+                      </div>
+                      ) : (
+                        <div className={styles.notext}  role="alert">
+                        <p>密碼不一致</p>
+                        </div>
+                      )
+                    ) : null)}
+
+                    {/* 如果有值 displayInfo ?  ( 如果displayIndo成功 ? 資料新增成功 ： 新增失敗） ：null */}
+                    {/* {displayInfo ? (
+                      displayInfo === "succ" ? (
+                        <div class="alert alert-success" role="alert">
+                          資料新增成功
+                        </div>
+                      ) : (
+                        <div class="alert alert-danger" role="alert">
+                          新增發生錯誤!!!
+                        </div>
+                      )
+                    ) : null} */}
 
                     <div className={styles.bottom}>
                       <button
                         className={styles.submit}
                         type="button"
-                        onClick={onSubmit} 
+                        onClick={onSubmit}
                         value=""
-                      >註冊</button>
+                      >
+                        註冊
+                      </button>
                     </div>
                   </form>
                 </div>
