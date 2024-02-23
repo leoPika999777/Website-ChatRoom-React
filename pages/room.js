@@ -1,13 +1,31 @@
-import React from "react";
+import { useState, useEffect, useContext, useRef } from 'react'
 import styles from "@/styles/room.module.css";
 import Navbar from "@/components/navbar";
 import RoomIcon from "@/components/room-roomicon copy";
+
+import { ROOMS_LIST } from "@/configs";
 
 import { IoAccessibilitySharp } from "react-icons/io5";
 import { FaKey } from "react-icons/fa";
 import { PiFinnTheHumanFill } from "react-icons/pi";
 
 export default function Room() {
+  const [rooms, setRooms] = useState([]);
+  const getTagsData = async () => {
+    try {
+      const response = await fetch(ROOMS_LIST);
+      const data = await response.json();
+
+      setRooms(data);
+    } catch (ex) {
+      console.log(ex);
+    }
+  };
+
+  useEffect(() => {
+    getTagsData()
+  }, []) // 在組件載入時執行
+
   return (
     <>
       <div className="container">
@@ -18,32 +36,44 @@ export default function Room() {
             <RoomIcon />
             <div className={styles.Middle}>
               <div className={styles.MmarginAuto}>
-                <div className={styles.chatbox}>
-                  <div className={styles.roomname}>
-                    <p>一首歌的故事</p>
-                  </div>
-                  <div className={styles.details}>
-                    <div className={styles.people}>
-                      <IoAccessibilitySharp className={styles.icons} size={"30px"} color="blue" />
-                      <p>15</p>
-                    </div>
-                    <div className={styles.lock}>
-                      <FaKey className={styles.icons} size={"30px"} color="blue" />
-                      <p>Y</p>
-                    </div>
-                    <div className={styles.author}>
-                      <PiFinnTheHumanFill  className={styles.icons} size={"30px"} color="blue" />
-                      <p>BEE</p>
-                    </div>
-                  </div>
-                  
-                  {/* 房間人數 房間加密 創辦作者 */}
-                </div>
+                {rooms &&
+                  rooms.map((i) => {
+                    return (
+                      <div className={styles.chatbox} key={i.room_id}>
+                        <div className={styles.roomname}>
+                          <p>{i.room_name}</p>
+                        </div>
+                        <div className={styles.details}>
+                          <div className={styles.people}>
+                            <IoAccessibilitySharp
+                              className={styles.icons}
+                              size={"20px"}
+                              color="blue"
+                            />
+                            <p>15</p>
+                          </div>
+                          <div className={styles.lock}>
+                            <FaKey
+                              className={styles.icons}
+                              size={"20px"}
+                              color="blue"
+                            />
+                            <p>{i.room_password ? "Y" : "N"}</p>
+                          </div>
+                          <div className={styles.author}>
+                            <PiFinnTheHumanFill
+                              className={styles.icons}
+                              size={"20px"}
+                              color="blue"
+                            />
+                            <p>{i.user_name}</p>
+                          </div>
+                        </div>
 
-                {/* <div className={styles.chatbox}></div>
-                <div className={styles.chatbox}></div>
-                <div className={styles.chatbox}></div>
-                <div className={styles.chatbox}></div> */}
+                        {/* 房間人數 房間加密 創辦作者 */}
+                      </div>
+                    );
+                  })}
               </div>
             </div>
           </div>

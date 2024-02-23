@@ -12,7 +12,7 @@
     height: 95%;
     background-color: white;
     border-radius: 20px;
-    border: 5px solid var(--b2-color);
+    border: 5px solid var(--o2-color);
 
     padding: 10px;
 }
@@ -101,6 +101,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.lable{
+    margin-bottom: 20px;
 }
 .input{
     width: 100%;

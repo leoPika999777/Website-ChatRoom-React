@@ -8,7 +8,7 @@
     justify-content: center;
 }
 .mains{
-    width: 80%;
+    width: 100%;
     height: 95%;
     background-color: white;
     border-radius: 20px;
@@ -29,19 +29,23 @@
     padding: 15px;
     background-color: var(--b1-color);
 
+    overflow:scroll;
+
 
 }
 .MmarginAuto{
 
     max-width: 850px;
+    overflow:scroll;
     
     margin: auto;
     display: flex;
     flex-wrap:wrap;
 }
 .chatbox{
-    width: 180px;
-    height: 180px;
+    width: 20%;
+    min-width: 170px;
+    height: 170px;
     background-color: white;
     margin: 15px;
     padding: 15px;
@@ -52,6 +56,7 @@
     align-items: center;
     justify-content: center;
     cursor:pointer
+
     
 }
 
@@ -61,16 +66,17 @@
 }
 
 .roomname p{
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     color: var(--g1-color);
+    margin: 5px;
     
 }
 .details{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin: 25px;
+    margin: 15px;
 
 }
 
@@ -84,4 +90,5 @@
 .people p, .lock p, .author p{
     margin-top: 15px;
     color: var(--b2-color);
+    font-size: 10px;
 }
