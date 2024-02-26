@@ -124,9 +124,10 @@
     cursor:pointer;
     background-color: var(--b2-color);
 }
+
 .submit:hover{
-    border: 20px;
-    border-radius: 3px solid var(--o2-color);
+    background-color: var(--o2-color);
+    
 }
 .notext p{
     color: red;

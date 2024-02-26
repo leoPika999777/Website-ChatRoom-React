@@ -1,0 +1,9 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#2fd8db",
+        "titleBar.activeBackground": "#24464e",
+        "titleBar.activeForeground": "#FBFAFA"
+    },"cSpell.words": [
+        "resave"
+    ]
+}

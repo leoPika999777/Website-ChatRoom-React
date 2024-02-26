@@ -4,6 +4,8 @@ import Navbar from "@/components/navbar";
 import RegisterRoomIcon from "@/components/register-roomicon";
 
 import { USER_ADD } from "@/configs";
+import { useRouter } from 'next/router'
+import Swal from 'sweetalert2'
 
 export default function Reg() {
   const [myForm, setMyForm] = useState({
@@ -13,6 +15,8 @@ export default function Reg() {
     confirm: "",
     photo: 1,
   });
+
+  const router = useRouter()
 
   // 表單送出通知
   const [displayInfo, setDisplayInfo] = useState("");
@@ -64,8 +68,17 @@ export default function Reg() {
 
     const responseData = await r.json();
     if (responseData.success) {
-      setDisplayInfo("succ");
-      // alert("新增成功");
+      setDisplayInfo('succ')
+      Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: '已成功註冊',
+        showConfirmButton: false,
+        timer: 1500,
+      })
+      setTimeout(() => {
+        router.push(`/index2`)
+      }, 1500)
     } else {
       setDisplayInfo("fail");
       // alert("新增發生錯誤!!!");
