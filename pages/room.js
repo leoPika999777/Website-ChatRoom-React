@@ -8,6 +8,9 @@ import { ROOMS_LIST } from "@/configs";
 import { IoAccessibilitySharp } from "react-icons/io5";
 import { FaKey } from "react-icons/fa";
 import { PiFinnTheHumanFill } from "react-icons/pi";
+import { FaLock } from "react-icons/fa";
+import { FaUnlockAlt } from "react-icons/fa";
+
 
 export default function Room() {
   const [rooms, setRooms] = useState([]);
@@ -53,12 +56,10 @@ export default function Room() {
                             <p>15</p>
                           </div>
                           <div className={styles.lock}>
-                            <FaKey
-                              className={styles.icons}
-                              size={"20px"}
-                              color="blue"
-                            />
-                            <p>{i.room_password ? "Y" : "N"}</p>
+                            
+                            <p>{i.room_password ? <FaLock  size={"20px"}
+                              color="blue" /> : <FaUnlockAlt  size={"20px"}
+                              color="blue" />}</p>
                           </div>
                           <div className={styles.author}>
                             <PiFinnTheHumanFill

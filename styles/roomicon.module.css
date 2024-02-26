@@ -7,7 +7,7 @@
     width: 100%;
     height: 20%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding-left: 50px;
     padding-right: 50px;
@@ -50,4 +50,7 @@
 
     border-radius: 5px;
     cursor:pointer;
+}
+.topE:hover{
+    background-color: var(--b3-color);
 }

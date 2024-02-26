@@ -2,50 +2,114 @@ import { useState, useContext } from "react";
 import styles from "@/styles/index.module.css";
 import Navbar from "@/components/navbar";
 import IndexRoomIcon from "@/components/index-roomicon";
+import { LOGIN } from "@/configs";
+import AuthContext from "@/contexts/AuthContext";
+import { useRouter } from "next/router";
 
 export default function Index() {
+  const { auth } = useContext(AuthContext);
+
+  const [account, setAccount] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { setAuth } = useContext(AuthContext);
+  const router = useRouter();
+
+  const postForm = async (e) => {
+    e.preventDefault();
+    //表單不要用傳統的方式送出
+
+    const r = await fetch(LOGIN, {
+      method: "POST",
+      //包成物件後轉成JSON
+      body: JSON.stringify({ account, password }),
+
+      //現在是JSON
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    //拿到資料
+    const data = await r.json();
+    console.log(data);
+    if (data.success) {
+      const { user_id, account, user_name, photo, token } = data;
+      //登入的時候寫進去
+      localStorage.setItem(
+        "auth",
+        JSON.stringify({ user_id, account, user_name, photo, token })
+      );
+      setAuth({ user_id, account, user_name, photo, token });
+      router.push("/");
+    }
+  };
   return (
     <>
       <div className="container">
-      <Navbar/>
-        
+        <Navbar />
+
         <div className={styles.main}>
           <div className={styles.mains}>
             <IndexRoomIcon />
             <div className={styles.Middle}>
               <div className={styles.mleft}>
-                <div className={styles.bigphoto}>
-                  <img src="/img/user-01.png" />
-                </div>
+                {auth.user_id ? (
+                  <div className={styles.link}>
+                    <p>Hello</p>
+                    <a href="./room">LET's CHAT</a>
+                  </div>
+                ) : (
+                  <div className={styles.fields}>HELLO</div>
+                )}
               </div>
               <div className={styles.mright}>
-                <div className={styles.fields}>
-                  <form className={styles.form}>
-                    <label>
-                      帳號：
-                      <input className={styles.input} type="text" name="name" />
-                    </label>
-                    <br></br>
-                    <label>
-                      密碼：
-                      <input className={styles.input} type="text" name="name" />
-                    </label>
-                    <br></br>
-
-                    <div className={styles.bottom}>
+                {auth.user_id ? (
+                  <div className={styles.bigphoto}>
+                    <img src="/img/user-01.png" />
+                  </div>
+                ) : (
+                  <div className={styles.fields}>
+                    <form className={styles.form} onSubmit={postForm}>
+                      <label htmlFor="account">帳號</label>
                       <input
-                        className={styles.submit}
-                        type="submit"
-                        value="登入"
+                        className={styles.input}
+                        type="text"
+                        name="account"
+                        value={account}
+                        onChange={(e) => setAccount(e.target.value)}
                       />
-                      <button
-                        type="submit"
-                        className={styles.submit}
-                        
-                      >註冊</button>
+
+                      <br></br>
+                      <label htmlFor="password" className="form-label">
+                        密碼
+                      </label>
+                      <input
+                        className={styles.input}
+                        type="password"
+                        id="password"
+                        name="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+
+                      <br></br>
+
+                      <div className={styles.bottom}>
+                        <button type="submit" className={styles.submit}>
+                          登入
+                        </button>
+                      </div>
+                    </form>
+                    <div className={styles.form}>
+                      <p>===or===</p>
+                      <div className={styles.bottom}>
+                        <button type="submit" className={styles.submit}>
+                          註冊
+                        </button>
+                      </div>
                     </div>
-                  </form>
-                </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>

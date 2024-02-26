@@ -92,7 +92,7 @@ export const ROOMS_LIST = API_SERVER + '/chat/rooms' // get
 export const USER_ADD = API_SERVER + '/reg/add'
 
 //--------登入
-export const LOGIN = API_SERVER + "/login-jwt"; // method: POST, 欄位 email, password
+export const LOGIN = API_SERVER + "/login-jwt"; // method: POST, 欄位 count, password
 
 //--------會員相關的路由
 export const PROFILE = API_SERVER + "/profile"; // method: GET, 取得用戶資料

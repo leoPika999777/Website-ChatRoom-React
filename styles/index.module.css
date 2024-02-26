@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
 
 
-.main{
+.main {
     height: 80vh;
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.mains{
+
+.mains {
     width: 100%;
     height: 95%;
     background-color: white;
@@ -18,7 +19,7 @@
 }
 
 /* 筐內top */
-.top{
+.top {
     height: 20%;
     display: flex;
     justify-content: space-between;
@@ -35,7 +36,7 @@
     justify-content: center;
     align-items: center;
 
-  
+
 }
 
 .topC img {
@@ -49,14 +50,15 @@
 
 /* 登入範圍 */
 
-.Middle{
+.Middle {
     width: 100%;
     height: 80%;
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
 
 }
-.mleft{
+
+.mleft {
     width: 50%;
     height: 100%;
     display: flex;
@@ -64,7 +66,7 @@
     align-items: center;
 }
 
-.mright{
+.mright {
     width: 50%;
     height: 100%;
     display: flex;
@@ -92,31 +94,66 @@
 }
 
 /* right */
-.fields{
+.fields {
     width: 100%;
 }
-.form{
+
+.form {
     margin-left: 20%;
     margin-right: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.input{
+
+.input {
     width: 100%;
     min-width: 150px;
     height: 30px;
     border-radius: 10px;
-    border:var(--b2-color) solid 2px;
+    border: var(--b2-color) solid 2px;
     padding-left: 10px;
 }
-.bottom{
+
+.bottom {
     width: 100%;
     display: flex;
     justify-content: space-around;
 }
-.submit{
-    width: 30%;
+
+.submit {
+    width: 50%;
     height: 30px;
     border: 20px;
+}
+
+.form p {
+    text-align: center;
+    margin: 3%;
+    color: var(--b1-color);
+}
+
+
+/* 登入後左側 */
+.link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.link p{
+    font-size: 50px;
+}
+.link a{
+    width: auto;
+    border: 5px solid var(--b2-color);
+    border-radius: 20px;
+    color: var(--b2-color);
+
+    padding: 10px;
+    margin: 10px;
+}
+.link a:hover{
+    background-color: var(--b2-color);
+    color: white;
 }
