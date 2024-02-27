@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext, useRef } from 'react'
 import styles from "@/styles/room.module.css";
 import Navbar from "@/components/navbar";
-import RoomIcon from "@/components/room-roomicon copy";
+import RoomIcon2 from "@/components/room2-roomicon";
 
 import { ROOMS_LIST } from "@/configs";
 
@@ -14,6 +14,7 @@ import { FaUnlockAlt } from "react-icons/fa";
 
 export default function Room() {
   const [rooms, setRooms] = useState([]);
+
   const getTagsData = async () => {
     try {
       const response = await fetch(ROOMS_LIST);
@@ -30,13 +31,13 @@ export default function Room() {
   }, []) // 在組件載入時執行
 
   return (
-    <>
+    <> 
       <div className="container">
         <Navbar />
 
         <div className={styles.main}>
           <div className={styles.mains}>
-            <RoomIcon />
+            <RoomIcon2 />
             <div className={styles.Middle}>
               <div className={styles.MmarginAuto}>
                 {rooms &&

@@ -11,6 +11,7 @@
     align-items: center;
     padding-left: 50px;
     padding-right: 50px;
+    position: relative;
 
 }
 .topA{
@@ -38,7 +39,7 @@
     align-items: center;
 }
 
-.topE{
+.topEb{
     width: 100px;
     height: 50px;
     color: white;
@@ -50,7 +51,11 @@
 
     border-radius: 5px;
     cursor:pointer;
+
 }
-.topE:hover{
+.topEb:hover{
     background-color: var(--b3-color);
+}
+.topEp{
+    color:white;
 }
