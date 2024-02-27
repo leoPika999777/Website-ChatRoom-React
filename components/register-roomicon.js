@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/styles/roomicon.module.css";
+import styles from "@/styles/regroomicon.module.css";
 export default function RegisterRoomIcon() {
   return (
     <>

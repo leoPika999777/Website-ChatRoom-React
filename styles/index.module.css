@@ -96,6 +96,7 @@
 /* right */
 .fields {
     width: 100%;
+
 }
 
 .form {
@@ -122,9 +123,39 @@
 }
 
 .submit {
+    font-size: 16px;
+    text-align: center;
+    color: black;
+    
     width: 50%;
     height: 30px;
     border: 20px;
+    cursor: pointer;
+    background-color: var(--b3-color);
+
+    border-radius: 20px;
+    border: 3px solid var(--b1-color);
+}
+.submit:hover{
+    color: white;
+    background-color: var(--b1-color);
+}
+.registbtn{width: 50%;
+    font-size: 16px;
+    text-align: center;
+    color: black;
+
+    height: 30px;
+    border: 20px;
+    cursor: pointer;
+    background-color: var(--b3-color);
+
+    border-radius: 20px;
+    border: 3px solid var(--b1-color);
+}
+.registbtn:hover{
+    color: white;
+    background-color: var(--b1-color);
 }
 
 .form p {
@@ -156,4 +187,10 @@
 .link a:hover{
     background-color: var(--b2-color);
     color: white;
+}
+
+.hellos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

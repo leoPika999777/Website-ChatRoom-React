@@ -77,7 +77,7 @@ export default function Reg() {
         timer: 1500,
       })
       setTimeout(() => {
-        router.push(`/index`)
+        router.push(`/`)
       }, 1500)
     } else {
       setDisplayInfo("fail");

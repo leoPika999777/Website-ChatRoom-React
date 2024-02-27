@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+
+
+
+/* 筐內top */
+.top{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    position: relative;
+
+}
+.topA{
+    width: 100px;
+}
+.topC {
+
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+  
+}
+
+
+.topC img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topEb{
+    width: 100px;
+    height: 50px;
+    color: white;
+    background-color: var(--b1-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    cursor:pointer;
+
+}
+.topEb:hover{
+    background-color: var(--b3-color);
+}
+.topEp{
+    color:white;
+}

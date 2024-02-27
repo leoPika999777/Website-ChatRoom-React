@@ -59,7 +59,9 @@ export default function Index() {
                     <a href="./room">LET's CHAT</a>
                   </div>
                 ) : (
-                  <div className={styles.fields}>HELLO</div>
+                  <div className={styles.hellos}>
+                    <p>Hello</p>
+                  </div>
                 )}
               </div>
               <div className={styles.mright}>
@@ -103,9 +105,13 @@ export default function Index() {
                     <div className={styles.form}>
                       <p>===or===</p>
                       <div className={styles.bottom}>
-                        <button type="submit" className={styles.submit}>
+                        <a
+                          href="./register"
+                          className={styles.registbtn}
+                          type="button"
+                        >
                           註冊
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>
