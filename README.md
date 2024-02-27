@@ -1,3 +1,8 @@
+使用React建置會員聊天室功能 <br>
+1.會員註冊 (已完成） <br>
+2.會員登入 (已完成） <br>
+3.創建聊天室 (已完成） <br>
+4.sockie io 套件引入與會員聊天(待完成） <br>
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
