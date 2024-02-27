@@ -56,7 +56,7 @@ export default function Index() {
                 {auth.user_id ? (
                   <div className={styles.link}>
                     <p>Hello</p>
-                    <a href="./room">LET's CHAT</a>
+                    <a href="./room">LetsChat</a>
                   </div>
                 ) : (
                   <div className={styles.hellos}>
