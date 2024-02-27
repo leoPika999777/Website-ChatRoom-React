@@ -1,14 +1,43 @@
-import React from "react";
+import { useState, useEffect, useContext } from "react";
 import styles from "@/styles/chat.module.css";
 import Navbar from "@/components/navbar";
+import { useRouter } from "next/router";
+import { ROOMS_ONE } from "@/configs";
+
+import AuthContext from "@/contexts/AuthContext";
 
 export default function Chat() {
+  const { auth } = useContext(AuthContext);
+
+  const router = useRouter();
+  const [room, setRoom] = useState({});
+
+  const getRoom = async () => {
+    // console.log('router.query:', router.query.pid) // 除錯用
+    let room_id = +router.query.pid || 1;
+    if (room_id < 1) room_id = 1;
+
+    try {
+      const r = await fetch(ROOMS_ONE + `/${room_id}`);
+      const d = await r.json();
+      //console.log({ d })
+      setRoom(d);
+    } catch (ex) {
+      console.log(ex);
+    }
+  };
+
+  useEffect(() => {
+    getRoom();
+  }, [router.query.pid]);
+
   return (
     <>
       <div className="container">
         <Navbar />
         <div className={styles.main}>
           <div className={styles.left}>
+            <div className={styles.Name}>房主</div>
             <div className={styles.person}>
               <div className={styles.puserphoto}>
                 <img
@@ -17,9 +46,10 @@ export default function Chat() {
                 />
               </div>
               <div className={styles.pusername}>
-                <p>BEE</p>
+                <p>{room.user_name}</p>
               </div>
             </div>
+            <div className={styles.Name}>成員</div>
             <div className={styles.person}>
               <div className={styles.puserphoto}>
                 <img

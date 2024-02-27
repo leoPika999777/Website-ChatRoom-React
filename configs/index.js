@@ -99,3 +99,6 @@ export const ROOMS_LIST = API_SERVER + '/chat/rooms' // get
 
 // ROOMS-房間新增
 export const ROOMS_ADD = API_SERVER + '/chat/addroom'
+
+// ROOMS-房間
+export const ROOMS_ONE = API_SERVER + '/chat/api/detail'
