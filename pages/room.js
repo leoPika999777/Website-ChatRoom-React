@@ -1,6 +1,7 @@
-import { useState, useEffect, useContext, useRef } from 'react'
+import { useState, useEffect, useContext, useRef } from "react";
 import styles from "@/styles/room.module.css";
 import Navbar from "@/components/navbar";
+
 import RoomIcon2 from "@/components/room2-roomicon";
 
 import { ROOMS_LIST } from "@/configs";
@@ -10,9 +11,15 @@ import { FaKey } from "react-icons/fa";
 import { PiFinnTheHumanFill } from "react-icons/pi";
 import { FaLock } from "react-icons/fa";
 import { FaUnlockAlt } from "react-icons/fa";
-
+import AuthContext from "@/contexts/AuthContext";
 
 export default function Room() {
+  //判斷登入
+  const { auth } = useContext(AuthContext);
+
+
+
+  //串接後段room
   const [rooms, setRooms] = useState([]);
 
   const getTagsData = async () => {
@@ -27,11 +34,12 @@ export default function Room() {
   };
 
   useEffect(() => {
-    getTagsData()
-  }, []) // 在組件載入時執行
+    getTagsData();
+  }, []); // 在組件載入時執行
+
 
   return (
-    <> 
+    <>
       <div className="container">
         <Navbar />
 
@@ -44,12 +52,15 @@ export default function Room() {
                   rooms.map((i) => {
                     return (
                       <div className={styles.chatbox} key={i.room_id}>
-                      <div className={styles.lock}>
-                            
-                            <p>{i.room_password ? <FaLock  size={"20px"}
-                              color="darkblue" /> : <FaUnlockAlt  size={"20px"}
-                              color="lightblue" />}</p>
-                          </div>
+                        <div className={styles.lock}>
+                          <p>
+                            {i.room_password ? (
+                              <FaLock size={"20px"} color="darkblue" />
+                            ) : (
+                              <FaUnlockAlt size={"20px"} color="lightblue" />
+                            )}
+                          </p>
+                        </div>
                         <div className={styles.roomname}>
                           <p>{i.room_name}</p>
                         </div>
@@ -62,7 +73,7 @@ export default function Room() {
                             />
                             <p>15</p>
                           </div>
-                         
+
                           <div className={styles.author}>
                             <PiFinnTheHumanFill
                               className={styles.icons}
