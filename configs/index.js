@@ -85,9 +85,6 @@ export const BLOG_FANSLIST = API_SERVER + '/blog-list/fanslist' // get
 
 
 
-// ROOMS-總表
-export const ROOMS_LIST = API_SERVER + '/chat/rooms' // get
-
 //會員註冊
 export const USER_ADD = API_SERVER + '/reg/add'
 
@@ -96,3 +93,9 @@ export const LOGIN = API_SERVER + "/login-jwt"; // method: POST, 欄位 count, p
 
 //--------會員相關的路由
 export const PROFILE = API_SERVER + "/profile"; // method: GET, 取得用戶資料
+
+// ROOMS-總表
+export const ROOMS_LIST = API_SERVER + '/chat/rooms' // get
+
+// ROOMS-房間新增
+export const ROOMS_ADD = API_SERVER + '/chat/addroom'

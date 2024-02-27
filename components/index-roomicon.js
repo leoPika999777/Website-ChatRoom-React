@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/styles/roomicon.module.css";
+import styles from "@/styles/indexroomicon.module.css";
 export default function IndexRoomIcon() {
   return (
     <>

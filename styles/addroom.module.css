@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+
+.body{
+    width: auto;
+    height: auto;
+    background-color: aqua;
+
+    display: flex;
+    justify-content: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.lable p{
+    font-size: 24px;
+    color: var(--b1-color);
+    margin: 10px;
+}
+.input{
+    margin: 5px;
+    padding: 5px;
+    height: 30px;
+
+}
+.submit{
+    width: 100px;
+    background-color: var(--b2-color);
+    border: var(--b1-color) 2px solid;
+    margin: 5px;
+}
+

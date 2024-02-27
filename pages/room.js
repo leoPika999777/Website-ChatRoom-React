@@ -43,6 +43,12 @@ export default function Room() {
                   rooms.map((i) => {
                     return (
                       <div className={styles.chatbox} key={i.room_id}>
+                      <div className={styles.lock}>
+                            
+                            <p>{i.room_password ? <FaLock  size={"20px"}
+                              color="darkblue" /> : <FaUnlockAlt  size={"20px"}
+                              color="lightblue" />}</p>
+                          </div>
                         <div className={styles.roomname}>
                           <p>{i.room_name}</p>
                         </div>
@@ -55,12 +61,7 @@ export default function Room() {
                             />
                             <p>15</p>
                           </div>
-                          <div className={styles.lock}>
-                            
-                            <p>{i.room_password ? <FaLock  size={"20px"}
-                              color="blue" /> : <FaUnlockAlt  size={"20px"}
-                              color="blue" />}</p>
-                          </div>
+                         
                           <div className={styles.author}>
                             <PiFinnTheHumanFill
                               className={styles.icons}

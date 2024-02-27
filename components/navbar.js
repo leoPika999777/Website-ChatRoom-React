@@ -31,13 +31,13 @@ export default function Navbar() {
             <div >
               <a
                 className={styles.logout}
-                href="#"
+                href="./"
                 onClick={(e) => {
                   e.preventDefault();
                   logout();
                 }}
               >
-                登出
+                <p>登出</p>
               </a>
             </div>
           </div>

@@ -8,9 +8,11 @@
     justify-content: space-between;
     align-items: center;
 }
-.hleft{
+
+.hleft {
     width: 200px;
 }
+
 .hlogo {
     width: 50%;
     overflow: hidden;
@@ -18,7 +20,7 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-  
+
 }
 
 .hlogo img {
@@ -30,8 +32,8 @@
     align-items: center;
 }
 
-.hmiddle{
-    font-size: var( --h5-font-size);
+.hmiddle {
+    font-size: var(--h5-font-size);
     color: var(--b1-color);
     font-family: 'Sixtyfour', sans-serif;
 }
@@ -46,11 +48,17 @@
 
 .huser {
     margin-right: 10px;
-    font-size: var( --h5-font-size);
+    font-size: var(--h5-font-size);
 }
-.logout{
+
+.logout p{
     color: black;
-    font-size: var( --h6-font-size);
+    font-size: var(--h6-font-size);
+}
+
+.logout p:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ease-out;
 }
 
 .huserphoto {
