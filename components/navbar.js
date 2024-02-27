@@ -10,16 +10,18 @@ export default function Navbar() {
     <>
       <div className={styles.header}>
         <div className={styles.hleft}>
-          <div className={styles.hlogo}>
-            <img
-              src="/img/logo2.png"
-              // alt="{v.name} "
-            />
-          </div>
+          <a href="./">
+            <div className={styles.hlogo}>
+              <img
+                src="/img/logo2.png"
+                // alt="{v.name} "
+              />
+            </div>
+          </a>
         </div>
-
-        <div className={styles.hmiddle}>ChatRoom</div>
-
+        <a href="./">
+          <div className={styles.hmiddle}>ChatRoom</div>
+        </a>
         {auth.user_id ? (
           <div className={styles.hright}>
             <div className={styles.huserphoto}>
@@ -28,7 +30,7 @@ export default function Navbar() {
                 // alt="{v.name} "
               />
             </div>
-            <div >
+            <div>
               <a
                 className={styles.logout}
                 href="./"
