@@ -8,7 +8,7 @@ export default function Chat() {
   console.log(messages)
 
   const handleClick = ()=>{
-    sendMessage('1', text)
+    sendMessage('2', text)
   }
 
   return (

@@ -1,9 +1,9 @@
 .blog-headimgs{
-  height: 200px;
+  height: 15vh;
 }
 .blog-headimg{
   width:500px;
-  height:500px;
+  height:70vh;
   border: black 1px solid;
   
   margin: 20px;
